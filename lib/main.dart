@@ -41,6 +41,20 @@ class MyApp extends StatelessWidget {
                         'apiKey': 'YOUR_API_KEY',
                       },
                     ),
+                    new MarkerLayerOptions(
+                      markers: [
+                        new Marker(
+                          width: 80.0,
+                          height: 80.0,
+                          point: new LatLng(52.376372, 4.908066),
+                          builder: (BuildContext context) => const Icon(
+                            Icons.location_on,
+                            size: 80.0,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 )
               ),
