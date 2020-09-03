@@ -34,17 +34,12 @@ class HomeScreen extends StatelessWidget {
             child: Stack(
           children: <Widget>[
             FlutterMap(
-              options: new MapOptions(
-                center: tomtomHQ,
-                zoom: 13.0
-              ),
+              options: new MapOptions(center: tomtomHQ, zoom: 13.0),
               layers: [
                 new TileLayerOptions(
                   urlTemplate: "https://api.tomtom.com/map/1/tile/basic/main/"
                       "{z}/{x}/{y}.png?key={apiKey}",
-                  additionalOptions: {
-                    "apiKey": apiKey,
-                  },
+                  additionalOptions: {"apiKey": apiKey},
                 ),
                 new MarkerLayerOptions(
                   markers: [
@@ -53,20 +48,18 @@ class HomeScreen extends StatelessWidget {
                       height: 80.0,
                       point: new LatLng(52.376372, 4.908066),
                       builder: (BuildContext context) => const Icon(
-                        Icons.location_on,
-                        size: 60.0,
-                        color: Colors.black,
-                      ),
+                          Icons.location_on,
+                          size: 60.0,
+                          color: Colors.black),
                     ),
                   ],
                 ),
               ],
             ),
             Container(
-              padding: EdgeInsets.all(20),
-              alignment: Alignment.bottomLeft,
-              child: Image.asset("images/tt_logo.png"),
-            )
+                padding: EdgeInsets.all(20),
+                alignment: Alignment.bottomLeft,
+                child: Image.asset("images/tt_logo.png"))
           ],
         )),
         floatingActionButton: FloatingActionButton(
@@ -76,8 +69,8 @@ class HomeScreen extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        CopyrightsPage(copyrightsText: parseCopyrightsResponse(response))));
+                    builder: (context) => CopyrightsPage(
+                        copyrightsText: parseCopyrightsResponse(response))));
           },
         ),
       ),
