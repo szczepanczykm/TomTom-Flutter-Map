@@ -26,6 +26,10 @@ dependencies:
   cupertino_icons: ^0.1.2
   english_words: ^3.1.5
   flutter_map: any
+  http: 0.12.2
+
+
+
 
 dev_dependencies:
   flutter_test:
@@ -45,7 +49,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/maps_apis_logo.png
+    - images/tt_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
