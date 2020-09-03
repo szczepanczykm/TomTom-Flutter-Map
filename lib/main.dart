@@ -2,12 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong/latlong.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert' as convert;
-import 'package:flutter_app/copyrights_page.dart';
+import "package:flutter/material.dart";
+import "package:flutter_map/flutter_map.dart";
+import "package:latlong/latlong.dart";
+import "package:http/http.dart" as http;
+import "dart:convert" as convert;
+import "package:flutter_app/copyrights_page.dart";
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: "Flutter Demo",
       home: HomeScreen(),
     );
   }
@@ -28,7 +28,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final tomtomHQ = new LatLng(52.376372, 4.908066);
     return MaterialApp(
-      title: 'TomTom Map',
+      title: "TomTom Map",
       home: Scaffold(
         body: Center(
             child: Stack(
@@ -36,14 +36,14 @@ class HomeScreen extends StatelessWidget {
             FlutterMap(
               options: new MapOptions(
                 center: tomtomHQ,
-                zoom: 13.0,
+                zoom: 13.0
               ),
               layers: [
                 new TileLayerOptions(
                   urlTemplate: "https://api.tomtom.com/map/1/tile/basic/main/"
                       "{z}/{x}/{y}.png?key={apiKey}",
                   additionalOptions: {
-                    'apiKey': apiKey,
+                    "apiKey": apiKey,
                   },
                 ),
                 new MarkerLayerOptions(
@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(20),
               alignment: Alignment.bottomLeft,
-              child: Image.asset('images/tt_logo.png'),
+              child: Image.asset("images/tt_logo.png"),
             )
           ],
         )),
@@ -97,15 +97,15 @@ class HomeScreen extends StatelessWidget {
       parseGeneralCopyrights(jsonResponse, stringBuffer);
       parseRegionsCopyrights(jsonResponse, stringBuffer);
       return stringBuffer.toString();
-    } else
-      return "Can't get copyrights";
+    }
+    return "Can't get copyrights";
   }
 
   void parseRegionsCopyrights(jsonResponse, StringBuffer sb) {
-    List<dynamic> copyrightsRegions = jsonResponse['regions'];
+    List<dynamic> copyrightsRegions = jsonResponse["regions"];
     copyrightsRegions.forEach((element) {
-      sb.writeln(element['country']['label']);
-      List<dynamic> cpy = element['copyrights'];
+      sb.writeln(element["country"]["label"]);
+      List<dynamic> cpy = element["copyrights"];
       cpy.forEach((e) {
         sb.writeln(e);
       });
@@ -114,7 +114,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   void parseGeneralCopyrights(jsonResponse, StringBuffer sb) {
-    List<dynamic> generalCopyrights = jsonResponse['generalCopyrights'];
+    List<dynamic> generalCopyrights = jsonResponse["generalCopyrights"];
     generalCopyrights.forEach((element) {
       sb.writeln(element);
       sb.writeln("");
